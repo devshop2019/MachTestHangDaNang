@@ -1,4 +1,5 @@
 #include "Controller_MKL_RTC.h"
+#include "LinkedList.h"
 
 Controller_MKL_RTC::Controller_MKL_RTC()
 {
@@ -36,6 +37,16 @@ bool Controller_MKL_RTC::init()
 bool Controller_MKL_RTC::getData()
 {
     DateTime now = rtc.now();
+    String strData = "";
+
+    strData = String(now.hour(), DEC);
+    strData += ":";
+    strData += String(now.minute(), DEC);
+    strData += ":";
+    strData += String(now.second(), DEC);
+    strData += "    ";
+
+    this->valueDevice = strData;
 
     Serial.print(now.year(), DEC);
     Serial.print('/');

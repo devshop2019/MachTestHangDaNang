@@ -16,7 +16,7 @@
 
 extern int LAST_ID_DEVICE;
 
-extern Data_Adapter *listDevide[];
+extern Data_Adapter *listDevice[];
 extern unsigned long contentManager_TimeInterval;
 
 extern int Choseen_Menu; // Cài đặt số Menu lựa chọn loại Module

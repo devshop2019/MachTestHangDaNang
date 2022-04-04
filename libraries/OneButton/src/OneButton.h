@@ -27,10 +27,10 @@
 
 // ----- Callback function types -----
 
-extern "C" {
-typedef void (*callbackFunction)(void);
+extern "C"
+{
+  typedef void (*callbackFunction)(void);
 }
-
 
 class OneButton
 {
@@ -81,19 +81,6 @@ public:
   int getPressedTicks();
   void reset(void);
 
-private:
-  int _pin; // hardware pin number.
-  unsigned int _debounceTicks = 50; // number of ticks for debounce times.
-  unsigned int _clickTicks = 600; // number of ticks that have to pass by
-                                  // before a click is detected.
-  unsigned int _pressTicks = 1000; // number of ticks that have to pass by
-                                   // before a long button press is detected
-
-  int _buttonPressed;
-
-  bool _isLongPressed = false;
-
-  // These variables will hold functions acting as event source.
   callbackFunction _clickFunc = NULL;
   callbackFunction _doubleClickFunc = NULL;
   callbackFunction _pressFunc = NULL;
@@ -101,12 +88,32 @@ private:
   callbackFunction _longPressStopFunc = NULL;
   callbackFunction _duringLongPressFunc = NULL;
 
+private:
+  int _pin;                         // hardware pin number.
+  unsigned int _debounceTicks = 50; // number of ticks for debounce times.
+  unsigned int _clickTicks = 600;   // number of ticks that have to pass by
+                                    // before a click is detected.
+  unsigned int _pressTicks = 1000;  // number of ticks that have to pass by
+                                    // before a long button press is detected
+
+  int _buttonPressed;
+
+  bool _isLongPressed = false;
+
+  // These variables will hold functions acting as event source.
+  // callbackFunction _clickFunc = NULL;
+  // callbackFunction _doubleClickFunc = NULL;
+  // callbackFunction _pressFunc = NULL;
+  // callbackFunction _longPressStartFunc = NULL;
+  // callbackFunction _longPressStopFunc = NULL;
+  // callbackFunction _duringLongPressFunc = NULL;
+
   // These variables that hold information across the upcoming tick calls.
   // They are initialized once on program start and are updated every time the
   // tick function is called.
   int _state = 0;
   unsigned long _startTime; // will be set in state 1
-  unsigned long _stopTime; // will be set in state 2
+  unsigned long _stopTime;  // will be set in state 2
 };
 
 #endif

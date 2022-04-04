@@ -21,7 +21,7 @@ public:
 
     bool init();
 
-    bool deInit() { return 0; };
+    bool deInit() { return 1; };
 };
 
 extern Controller_MKL_I2C_Motor MKL_I2C_Motor_Device;

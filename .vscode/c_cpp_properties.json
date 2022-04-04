@@ -5,7 +5,8 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "C:\\Users\\XNgoc\\AppData\\Local\\Arduino15\\packages\\makerlabvn/**",
-                "C:/Users/XNgoc/AppData/Local/Arduino15/packages/makerlabvn/hardware/avr/1.0.5/libraries/RTClib"
+                "C:/Users/XNgoc/AppData/Local/Arduino15/packages/makerlabvn/hardware/avr/1.0.5/libraries/RTClib",
+                "${workspaceFolder}/libraries/OneButton/src"
             ],
             "defines": [
                 "_DEBUG",

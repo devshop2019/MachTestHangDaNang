@@ -2,14 +2,23 @@
 #define _DATA_H_ADAPTER_H_
 
 #include "arduino.h"
+#include "OneButton.h"
 
-extern unsigned long Current_Millis;
+// extern unsigned long Current_Millis;
 class Data_Adapter
 {
 public:
+  OneButton *btnNext;
+  OneButton *btnPrevious;
+  OneButton *btnStart;
+
+  callbackFunction LastNextFunction;
+  callbackFunction LastPreviousFunction;
+  callbackFunction LastStartFunction_Click;
+  callbackFunction LastStartFunction_DoubleClick;
   Data_Adapter(){};
   virtual ~Data_Adapter(){};
-
+  unsigned long Current_Millis = millis();
   unsigned long timeInterval = 1000;
   String nameDevice;
   String valueDevice;

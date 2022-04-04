@@ -5,15 +5,15 @@
 
 class button
 {
-  public:
+public:
   //
-  byte button_pin;          // Cài đặt chân nút bấm
+  byte button_pin; // Cài đặt chân nút bấm
   //
   bool state_button = LOW, last_button = LOW;
   byte count_button = 0;
   unsigned long current_Millis = millis();
   //
-  button(byte button_pin);  // Hàm cài đặt chân nút bấm
+  button(byte button_pin); // Hàm cài đặt chân nút bấm
   //
   void begin();
   void loop();
@@ -24,4 +24,3 @@ class button
 };
 
 #endif
-

@@ -4,6 +4,7 @@ Controller_MKL_I2C_Motor::Controller_MKL_I2C_Motor()
 {
     this->i2cAddress = 0x40;
     this->nameDevice = "MKL I2C Driver";
+    this->timeInterval = 1;
     Set_HS_Code(1518); // https://hshop.vn/products/mach-dieu-khien-dong-co-mkl-m10-i2c-motor-control-module
 }
 
