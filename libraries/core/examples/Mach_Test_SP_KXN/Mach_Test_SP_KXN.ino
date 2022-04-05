@@ -1,16 +1,43 @@
 #include <Scheduler.h>
 #include "Sieu_Am.h"
 #include "debugkxn.h"
-// #include "ContentManager.h"
 #include "Manager_Content.h"
 #include "Btn_Process.h"
 #include "view_LCD_Text.h"
+
+#include "Sieu_Am.h"
+#include "Controller_DHT.h"
+#include "Controller_MKL_I2C_Motor.h"
+#include "Controller_MKL_RTC.h"
+
+void AddManagerContent_Device()
+{
+  manager_Content.my_Devices_List.add(&Manager_I2C_Device);
+  manager_Content.my_Devices_List.add(&Dht_Device);
+  manager_Content.my_Devices_List.add(&sieuAm_Device);
+}
+
+void Add_I2C_Device()
+{
+  Manager_I2C_Device.myI2C_Devices_List.clear();
+
+  MKL_I2C_Motor_Device2.Set_HS_Code(200);
+  MKL_I2C_Motor_Device3.Set_HS_Code(300);
+  MKL_I2C_Motor_Device3.i2cAddress = 0x27;
+
+  Manager_I2C_Device.myI2C_Devices_List.add(&MKL_I2C_Motor_Device2);
+
+  Manager_I2C_Device.myI2C_Devices_List.add(&MKL_I2C_Motor_Device);
+
+  Manager_I2C_Device.myI2C_Devices_List.add(&MKL_I2C_Motor_Device3);
+
+  Manager_I2C_Device.myI2C_Devices_List.add(&RTC_Device);
+}
 
 // ---------------------------------------------------------------------------------------
 void setup()
 {
   Serial.begin(9600);
-  // Scheduler.start(buttonInit, buttonLoop, 50);
   buttonInit();
   debug("Start!");
   View_LCD_Text_Init();
@@ -20,11 +47,8 @@ void loop()
 {
   buttonLoop();
 
-  // Test_Choseen_Menu2();
-  // Test_SP2();
   manager_Content.getData();
   runSerialLife();
-  // delay(10);
 }
 // ---------------------------------------------------------------------------------------
 

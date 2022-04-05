@@ -5,9 +5,9 @@
 #include "dataAdapter.h"
 
 #include "view_LCD_Text.h"
-#include "Sieu_Am.h"
+// #include "Sieu_Am.h"
 // #include "CB_Dht.h"
-#include "Controller_DHT.h"
+// #include "Controller_DHT.h"
 #include "Manager_I2C_Devices.h"
 
 extern int LAST_ID_DEVICE;

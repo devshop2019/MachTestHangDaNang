@@ -14,13 +14,13 @@ Data_Adapter *listDevice[] = {
 // int Choseen_Menu = 0; // Cài đặt số Menu lựa chọn loại Module
 
 // unsigned long Current_Millis = millis();
-void AddManagerContent_Device()
-{
-    manager_Content.my_Devices_List.add(&Manager_I2C_Device);
-    manager_Content.my_Devices_List.add(&Dht_Device);
-    manager_Content.my_Devices_List.add(&sieuAm_Device);
-}
-
+// void AddManagerContent_Device()
+// {
+//     manager_Content.my_Devices_List.add(&Manager_I2C_Device);
+//     manager_Content.my_Devices_List.add(&Dht_Device);
+//     manager_Content.my_Devices_List.add(&sieuAm_Device);
+// }
+extern void AddManagerContent_Device();
 bool Manager_Content::getData()
 {
     if (millis() - this->Current_Millis > this->timeInterval) // Sau mỗi 0.25s mới cập nhập

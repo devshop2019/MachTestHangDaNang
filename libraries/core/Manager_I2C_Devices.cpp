@@ -1,40 +1,8 @@
 #include "Manager_I2C_Devices.h"
 #include "view_LCD_Text.h"
-#include "Controller_MKL_I2C_Motor.h"
-#include "Controller_MKL_RTC.h"
 #include "Btn_Process.h"
 #include "debugkxn.h"
 #include <LinkedList.h>
-
-// LinkedList<Model_I2C_Device *> myI2C_Devices_List = LinkedList<Model_I2C_Device *>();
-// LinkedList<uint8_t> indexI2CList = LinkedList<uint8_t>();
-// uint8_t currentI2C_DeviceIndex = 0;
-
-void Add_I2C_Device()
-{
-    // myI2C_Devices_List.clear();
-    Manager_I2C_Device.myI2C_Devices_List.clear();
-
-    MKL_I2C_Motor_Device2.Set_HS_Code(200);
-    MKL_I2C_Motor_Device3.Set_HS_Code(300);
-    MKL_I2C_Motor_Device3.i2cAddress = 0x27;
-
-    // myI2C_Devices_List.add(&MKL_I2C_Motor_Device2);
-
-    // myI2C_Devices_List.add(&MKL_I2C_Motor_Device);
-
-    // myI2C_Devices_List.add(&MKL_I2C_Motor_Device3);
-
-    // myI2C_Devices_List.add(&RTC_Device);
-
-    Manager_I2C_Device.myI2C_Devices_List.add(&MKL_I2C_Motor_Device2);
-
-    Manager_I2C_Device.myI2C_Devices_List.add(&MKL_I2C_Motor_Device);
-
-    Manager_I2C_Device.myI2C_Devices_List.add(&MKL_I2C_Motor_Device3);
-
-    Manager_I2C_Device.myI2C_Devices_List.add(&RTC_Device);
-}
 
 Manager_I2C_Data::Manager_I2C_Data()
 {
@@ -51,6 +19,7 @@ bool Manager_I2C_Data::getData()
     // Step 3: Init 2 Button (Next and Start)
     // Step 4: Select and run I2C Device
     // Step 5: Re Init 2 Button to default
+    Manager_I2C_Device.myI2C_Devices_List.clear();
     Add_I2C_Device();
     uint8_t tempGetI2cAddress = GetI2C_Address();
     ManagerI2C_Device_InitButton();
@@ -67,30 +36,6 @@ bool Manager_I2C_Data::getData()
 
     this->valueDevice = "0x" + String(tempGetI2cAddress, HEX);
 
-    // debug_manager_I2C_deviceln("myI2C_Devices_List.size() " + String(myI2C_Devices_List.size()));
-
-    // for (int cf = 0; cf < myI2C_Devices_List.size(); cf++)
-    // {
-    //     uint8_t tempAddress = myI2C_Devices_List.get(cf)->i2cAddress;
-    //     uint16_t tempHsCode = myI2C_Devices_List.get(cf)->hsCode;
-    //     debug_manager_I2C_deviceln("tempHsCode: " + String(tempHsCode));
-    //     debug_manager_I2C_deviceln("tempAddress: " + String(tempAddress));
-    //     debug_manager_I2C_deviceln("GetI2C_Address(): " + String(tempGetI2cAddress));
-
-    //     if (GetI2C_Address() == tempAddress)
-    //     {
-    //         myI2C_Devices_List.get(cf)->init();
-
-    //         while (this->isRun)
-    //         {
-    //             // debug_manager_I2C_deviceln(F("run myI2C_Devices_List.get(cf).getData();"));
-    //             myI2C_Devices_List.get(cf)->getData();
-    //             buttonLoop();
-    //         }
-
-    //         myI2C_Devices_List.get(cf)->deInit();
-    //     }
-    // }
     return true;
 }
 
@@ -211,38 +156,6 @@ void Manager_I2C_Data::RunDeviceI2C_WithIndex(uint8_t index__)
     Manager_I2C_Device.myI2C_Devices_List.get(index__)->isRun = false;
     Manager_I2C_Device.myI2C_Devices_List.get(index__)->deInit();
 }
-
-// void Manager_I2C_Data::RunDeviceI2C_WithIndex(uint8_t index__)
-// {
-//     if (myI2C_Devices_List.get(index__)->isRun == false)
-//         return;
-
-//     myI2C_Devices_List.get(index__)->init();
-
-//     while (myI2C_Devices_List.get(index__)->isRun)
-//     {
-//         // debug_manager_I2C_deviceln(F("run myI2C_Devices_List.get(cf).getData();"));
-//         if (millis() - Current_Millis >= myI2C_Devices_List.get(indexI2CList.get(currentI2C_DeviceIndex))->timeInterval)
-//         {
-//             Current_Millis = millis();
-//             myI2C_Devices_List.get(index__)->getData();
-//             ShowLCD(myI2C_Devices_List.get(index__)->nameDevice, myI2C_Devices_List.get(index__)->valueDevice);
-//         }
-//         buttonLoop();
-//     }
-
-//     myI2C_Devices_List.get(index__)->isRun = false;
-//     myI2C_Devices_List.get(index__)->deInit();
-// }
-
-// void Manager_I2C_Data::ShowLCD(String nameDevice__, String valueDevice__)
-// {
-//     lcd.clear();         // Xóa màn hình
-//     lcd.setCursor(2, 0); // Cột 2 dòng 0
-//     lcd.print(nameDevice__);
-//     lcd.setCursor(2, 1); // Cột 2 dòng 0
-//     lcd.print(valueDevice__);
-// }
 
 void Start_DeviceI2C()
 {

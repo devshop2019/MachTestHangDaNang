@@ -10,6 +10,7 @@
 extern int GetI2C_Address();
 extern void Stop_DeviceI2C();
 extern void Next_DeviceI2C();
+extern void Add_I2C_Device();
 
 class Manager_I2C_Data : public Data_Adapter
 {
