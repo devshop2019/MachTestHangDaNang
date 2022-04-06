@@ -1,20 +1,24 @@
 #include <Scheduler.h>
-#include "Sieu_Am.h"
 #include "debugkxn.h"
 #include "Manager_Content.h"
 #include "Btn_Process.h"
 #include "view_LCD_Text.h"
 
-#include "Sieu_Am.h"
+#include "Controller_Sieu_Am.h"
 #include "Controller_DHT.h"
+#include "Controller_Test_Snippet.h"
+
+// Include I2C Device
 #include "Controller_MKL_I2C_Motor.h"
 #include "Controller_MKL_RTC.h"
+#include "Controller_Test_I2C_Snippet.h"
 
 void AddManagerContent_Device()
 {
   manager_Content.my_Devices_List.add(&Manager_I2C_Device);
   manager_Content.my_Devices_List.add(&Dht_Device);
   manager_Content.my_Devices_List.add(&sieuAm_Device);
+  manager_Content.my_Devices_List.add(&testDevice_Device);
 }
 
 void Add_I2C_Device()
@@ -32,6 +36,8 @@ void Add_I2C_Device()
   Manager_I2C_Device.myI2C_Devices_List.add(&MKL_I2C_Motor_Device3);
 
   Manager_I2C_Device.myI2C_Devices_List.add(&RTC_Device);
+
+  Manager_I2C_Device.myI2C_Devices_List.add(&device_Controller_Test_I2C_Snippet);
 }
 
 // ---------------------------------------------------------------------------------------
