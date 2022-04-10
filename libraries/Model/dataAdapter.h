@@ -3,6 +3,7 @@
 
 #include "arduino.h"
 #include "OneButton.h"
+#include "LinkedList.h"
 
 // extern unsigned long Current_Millis;
 class Data_Adapter
@@ -16,6 +17,10 @@ public:
   callbackFunction LastPreviousFunction;
   callbackFunction LastStartFunction_Click;
   callbackFunction LastStartFunction_DoubleClick;
+
+  LinkedList<uint16_t> hsCode_List = LinkedList<uint16_t>();
+  void Add_HsCode(uint16_t vHscode);
+
   Data_Adapter(){};
   virtual ~Data_Adapter(){};
   unsigned long Current_Millis = millis();
@@ -25,7 +30,7 @@ public:
   bool isRun = false;
 
   uint16_t hsCode;
-  uint8_t i2cAddress;
+  // uint8_t i2cAddress;
 
   void Set_HS_Code(uint16_t hsCode__)
   {

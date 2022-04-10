@@ -2,10 +2,17 @@
 
 Controller_MKL_I2C_Motor::Controller_MKL_I2C_Motor()
 {
-    this->i2cAddress = 0x40;
+    this->Add_AddressList(0x40);
+    this->Add_AddressList(0x40+1);
+    this->Add_AddressList(0x40+2);
+    this->Add_AddressList(0x40+3);
+    this->Add_AddressList(0x40+4);
+    
+    this->Add_HsCode(1518);
+
     this->nameDevice = "MKL I2C Driver";
     this->timeInterval = 1;
-    Set_HS_Code(1518); // https://hshop.vn/products/mach-dieu-khien-dong-co-mkl-m10-i2c-motor-control-module
+    
 }
 
 Controller_MKL_I2C_Motor::~Controller_MKL_I2C_Motor()
@@ -40,7 +47,7 @@ bool Controller_MKL_I2C_Motor::getData()
 
     myDriver.MA(dirDCMotor, speedDCMotor);
     myDriver.MB(dirDCMotor, speedDCMotor);
-    delay(1);
+    // delay(1);
 
     return 0;
 }

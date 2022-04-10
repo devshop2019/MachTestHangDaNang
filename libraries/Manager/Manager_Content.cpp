@@ -1,10 +1,10 @@
 #include "Manager_Content.h"
 
-Data_Adapter *listDevice[] = {
-    // &Dht_Device,
-    // &sieuAm_Device,
-    // &Manager_I2C_Device,
-};
+// Data_Adapter *listDevice[] = {
+//     // &Dht_Device,
+//     // &sieuAm_Device,
+//     // &Manager_I2C_Device,
+// };
 
 // unsigned long contentManager_TimeInterval;
 
@@ -109,16 +109,16 @@ void Manager_Content::begin()
     this->sizeMyDeviceList = this->my_Devices_List.size();
 }
 
-void Manager_Content::button_Init(OneButton *btnPrevious_, OneButton *btnNext_, OneButton *btnStart_)
-{
-    this->btnNext = btnNext_;
-    this->btnPrevious = btnPrevious_;
-    this->btnStart = btnStart_;
+// void Manager_Content::button_Init(OneButton *btnPrevious_, OneButton *btnNext_, OneButton *btnStart_)
+// {
+//     this->btnNext = btnNext_;
+//     this->btnPrevious = btnPrevious_;
+//     this->btnStart = btnStart_;
 
-    this->LastNextFunction = this->btnNext->_clickFunc;
-    this->LastPreviousFunction = this->btnPrevious->_clickFunc;
-    this->LastStartFunction_Click = this->btnStart->_clickFunc;
-    this->LastStartFunction_DoubleClick = this->btnStart->_doubleClickFunc;
-}
+//     this->LastNextFunction = this->btnNext->_clickFunc;
+//     this->LastPreviousFunction = this->btnPrevious->_clickFunc;
+//     this->LastStartFunction_Click = this->btnStart->_clickFunc;
+//     this->LastStartFunction_DoubleClick = this->btnStart->_doubleClickFunc;
+// }
 
 Manager_Content manager_Content;

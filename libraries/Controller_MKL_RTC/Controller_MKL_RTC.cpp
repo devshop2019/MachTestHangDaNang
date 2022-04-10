@@ -3,10 +3,10 @@
 
 Controller_MKL_RTC::Controller_MKL_RTC()
 {
-    this->i2cAddress = 0x68;
     this->nameDevice = "RTC";
-    Set_HS_Code(1522);
     this->timeInterval = 1000;
+    this->Add_AddressList(0x68);
+    this->Add_HsCode(1522);
 }
 
 Controller_MKL_RTC::~Controller_MKL_RTC()

@@ -8,20 +8,14 @@
 // #include "Sieu_Am.h"
 // #include "CB_Dht.h"
 // #include "Controller_DHT.h"
-#include "Manager_I2C_Devices.h"
+// #include "Manager_I2C_Devices.h"
 
-extern int LAST_ID_DEVICE;
+// extern unsigned long Current_Millis;
 
-extern Data_Adapter *listDevice[];
-extern unsigned long contentManager_TimeInterval;
-
-// extern int Choseen_Menu; // Cài đặt số Menu lựa chọn loại Module
-extern unsigned long Current_Millis;
-
-extern void Test_SP2();
-extern void Test_Choseen_Menu2();
-extern void initContentManager();
-extern void deInitContentManager();
+// extern void Test_SP2();
+// extern void Test_Choseen_Menu2();
+// extern void initContentManager();
+// extern void deInitContentManager();
 
 class Manager_Content : public Data_Adapter
 {
@@ -36,7 +30,7 @@ public:
 
     void checkIndex();
     void begin();
-    void button_Init(OneButton *btnPrevious_, OneButton *btnNext_, OneButton *btnStart_);
+    // void button_Init(OneButton *btnPrevious_, OneButton *btnNext_, OneButton *btnStart_);
 };
 
 extern Manager_Content manager_Content;
