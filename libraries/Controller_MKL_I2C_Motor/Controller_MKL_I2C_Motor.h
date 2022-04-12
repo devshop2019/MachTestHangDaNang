@@ -25,6 +25,6 @@ public:
 };
 
 extern Controller_MKL_I2C_Motor MKL_I2C_Motor_Device;
-extern Controller_MKL_I2C_Motor MKL_I2C_Motor_Device2;
-extern Controller_MKL_I2C_Motor MKL_I2C_Motor_Device3;
+// extern Controller_MKL_I2C_Motor MKL_I2C_Motor_Device2;
+// extern Controller_MKL_I2C_Motor MKL_I2C_Motor_Device3;
 #endif

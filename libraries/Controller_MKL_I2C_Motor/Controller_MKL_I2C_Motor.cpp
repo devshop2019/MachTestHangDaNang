@@ -59,5 +59,5 @@ bool Controller_MKL_I2C_Motor::init()
 }
 
 Controller_MKL_I2C_Motor MKL_I2C_Motor_Device;
-Controller_MKL_I2C_Motor MKL_I2C_Motor_Device2;
-Controller_MKL_I2C_Motor MKL_I2C_Motor_Device3;
+// Controller_MKL_I2C_Motor MKL_I2C_Motor_Device2;
+// Controller_MKL_I2C_Motor MKL_I2C_Motor_Device3;

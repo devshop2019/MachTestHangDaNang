@@ -139,32 +139,6 @@ void Manager_I2C_Data::ScanDeviceI2C_WithAddress(uint8_t address__)
     }
 }
 
-// void Manager_I2C_Data::ScanDeviceI2C_WithAddress(uint8_t address__)
-// {
-//     // for (int cf = 0; cf < myI2C_Devices_List.size(); cf++)
-//     for (int cf = 0; cf < Manager_I2C_Device.myI2C_Devices_List.size(); cf++)
-//     {
-//         // uint8_t tempAddress = myI2C_Devices_List.get(cf)->i2cAddress;
-//         // uint16_t tempHsCode = myI2C_Devices_List.get(cf)->Get_HS_Code();
-
-//         uint8_t tempAddress = Manager_I2C_Device.myI2C_Devices_List.get(cf)->i2cAddress;
-//         uint16_t tempHsCode = Manager_I2C_Device.myI2C_Devices_List.get(cf)->Get_HS_Code();
-
-//         if (address__ == tempAddress)
-//         {
-//             debug_manager_I2C_deviceln("tempHsCode: " + String(tempHsCode));
-//             debug_manager_I2C_deviceln("tempAddress: " + String(tempAddress));
-
-//             // myI2C_Devices_List.get(cf)->Set_HS_Code(100);
-//             // tempHsCode = myI2C_Devices_List.get(cf)->Get_HS_Code();
-//             debug_manager_I2C_deviceln("Index: " + String(cf));
-
-//             // indexI2CList.add(cf);
-//             Manager_I2C_Device.indexI2CList.add(cf);
-//         }
-//     }
-// }
-
 void Manager_I2C_Data::RunDeviceI2C_WithIndex(uint8_t index__)
 {
     if (Manager_I2C_Device.myI2C_Devices_List.get(index__)->isRun == false)
@@ -201,31 +175,8 @@ void Start_DeviceI2C()
     tempI2C_Device->init();
     tempI2C_Device->isRun = true;
 
-    // Manager_I2C_Device.myI2C_Devices_List.get(tempI2C_IndexDevice)->deInit();
-    // Manager_I2C_Device.myI2C_Devices_List.get(tempI2C_IndexDevice)->i2cAddress = tempI2C_AddressDevice;
-    // Manager_I2C_Device.myI2C_Devices_List.get(tempI2C_IndexDevice)->init();
-    // Manager_I2C_Device.myI2C_Devices_List.get(tempI2C_IndexDevice)->isRun = true;
     debug_manager_I2C_deviceln(F("Start_DeviceI2C"));
 }
-
-// void Start_DeviceI2C()
-// {
-//     uint8_t temI2cIndex = Manager_I2C_Device.currentI2C_DeviceIndex;
-
-//     Manager_I2C_Device.myI2C_Devices_List.get(Manager_I2C_Device.indexI2CList.get(temI2cIndex))->deInit();
-//     Manager_I2C_Device.myI2C_Devices_List.get(Manager_I2C_Device.indexI2CList.get(temI2cIndex))->init();
-//     Manager_I2C_Device.myI2C_Devices_List.get(Manager_I2C_Device.indexI2CList.get(temI2cIndex))->isRun = true;
-//     debug_manager_I2C_deviceln(F("Start_DeviceI2C"));
-// }
-
-// void Stop_DeviceI2C()
-// {
-//     uint8_t temI2cIndex = Manager_I2C_Device.currentI2C_DeviceIndex;
-//     debug_manager_I2C_deviceln(F("Stop_DeviceI2C"));
-//     debug_manager_I2C_deviceln(temI2cIndex);
-//     Manager_I2C_Device.myI2C_Devices_List.get(Manager_I2C_Device.indexI2CList.get(temI2cIndex))->isRun = false;
-//     Manager_I2C_Device.myI2C_Devices_List.get(Manager_I2C_Device.indexI2CList.get(temI2cIndex))->deInit();
-// }
 
 void Stop_DeviceI2C()
 {
