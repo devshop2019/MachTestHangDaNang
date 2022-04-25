@@ -11,8 +11,8 @@
 
 
 // // Include I2C Device
-#include "Controller_MKL_I2C_Motor.h"
-// #include "Controller_MKL_RTC.h"
+// #include "Controller_MKL_I2C_Motor.h"
+#include "Controller_MKL_RTC.h"
 // #include "Controller_Test_I2C_Snippet.h"
 
 void AddManagerContent_Device()
@@ -24,8 +24,8 @@ void AddManagerContent_Device()
 
 void Add_I2C_Device()
 {
-  Manager_I2C_Device.myI2C_Devices_List.add(&MKL_I2C_Motor_Device);
-  // Manager_I2C_Device.myI2C_Devices_List.add(&RTC_Device);
+  // Manager_I2C_Device.myI2C_Devices_List.add(&MKL_I2C_Motor_Device);
+  Manager_I2C_Device.myI2C_Devices_List.add(&RTC_Device);
   // Manager_I2C_Device.myI2C_Devices_List.add(&device_Controller_Test_I2C_Snippet);
 }
 
