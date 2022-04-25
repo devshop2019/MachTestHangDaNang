@@ -1,7 +1,7 @@
 #ifndef _DATA_H_ADAPTER_H_
 #define _DATA_H_ADAPTER_H_
 
-#include "arduino.h"
+#include "Arduino.h"
 #include "OneButton.h"
 #include "LinkedList.h"
 

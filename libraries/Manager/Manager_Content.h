@@ -1,6 +1,6 @@
 #ifndef Manager_Content_H__
 #define Manager_Content_H__
-#include "arduino.h"
+#include "Arduino.h"
 #include <LinkedList.h>
 #include "dataAdapter.h"
 

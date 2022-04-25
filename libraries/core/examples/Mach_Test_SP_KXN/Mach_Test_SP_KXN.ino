@@ -6,7 +6,9 @@
 
 // #include "Controller_Sieu_Am.h"
 // #include "Controller_DHT.h"
-// #include "Controller_Test_Snippet.h"
+#include "Controller_Test_Snippet.h"
+// #include <Controller/Controller_DHT.h>
+
 
 // // Include I2C Device
 #include "Controller_MKL_I2C_Motor.h"
