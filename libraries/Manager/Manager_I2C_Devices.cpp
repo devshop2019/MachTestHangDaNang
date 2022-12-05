@@ -8,7 +8,8 @@ Manager_I2C_Data::Manager_I2C_Data()
 {
     this->nameDevice = "Manager_I2C";
     this->timeInterval = 100;
-    this->valueDevice = "No device";
+    // this->valueDevice = "No device";
+    this->valueDevice = "2 click Start";
     this->isRun = false;
 }
 
@@ -33,7 +34,7 @@ bool Manager_I2C_Data::getData()
 
     buttonInit();
 
-    this->valueDevice = "0x" + String(tempGetI2cAddress, HEX);
+    this->valueDevice = "2 click Start";
 
     return true;
 }
